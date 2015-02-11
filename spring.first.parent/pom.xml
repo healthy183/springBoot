@@ -1,0 +1,213 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>spring.boot.first</groupId>
+	<artifactId>spring.first.parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.2.0.RELEASE</version>
+	</parent>
+
+
+	<name>spring.first.parent</name>
+	<url>http://maven.apache.org</url>
+
+	<modules>
+		<module>spring.first.common</module>
+		<module>spring.first.config</module>
+		<module>spring.first.mvc</module>
+		<module>spring.first.repository</module>
+		<module>spring.first.service</module>
+		<module>spring.first.web</module>
+	</modules>
+
+	<properties>
+		<!-- <spring.version>4.0.0.RELEASE</spring.version> 
+			<spring-data-jpa.version>1.5.0.M1</spring-data-jpa.version> 
+			<hibernate-entitymanager.version>4.3.0.Final</hibernate-entitymanager.version> -->
+		<!-- <spring.version>4.1.3.RELEASE</spring.version>  -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- <mysql-connector-java>5.1.6</mysql-connector-java> -->
+	</properties>
+
+	<dependencies>
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-test</artifactId> 
+			</dependency> -->
+		  <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+	
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		
+		<!-- <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<optional>true</optional>
+		</dependency> -->
+		
+		<!-- <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<optional>true</optional>
+		</dependency> -->
+		
+		<!-- Annotation processing -->
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency> -->
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf-spring3</artifactId>
+			<version>2.1.4.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.14.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.26</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.fusesource.jansi</groupId>
+			<artifactId>jansi</artifactId>
+			<version>1.10</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions</artifactId>
+			<version>3.9.3</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions-jta</artifactId>
+			<version>3.9.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions-hibernate3</artifactId>
+			<version>3.9.3</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>hibernate</artifactId>
+					<groupId>org.hibernate</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<url>http://repo.spring.io/libs-milestone</url>
+		</repository>
+	</repositories>
+	
+	<!-- <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build> -->
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+		        	<mainClass>spring.boot.first.web.run.ApplicationRun</mainClass>
+		       		 <!-- <layout>ZIP</layout> -->
+			    </configuration>
+			    <executions>
+			        <execution>
+			            <goals>
+			                <goal>repackage</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+			
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<useSystemClassLoader>false</useSystemClassLoader>
+				</configuration>
+			</plugin>
+			
+		</plugins>
+	</build>
+	
+	
+</project>
