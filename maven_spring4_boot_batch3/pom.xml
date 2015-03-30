@@ -18,8 +18,8 @@
   
   
    <modules>
+   		<module>maven_spring4_boot_batch3_single/pom.xml</module>
 		<module>maven_spring4_boot_batch3_simple/pom.xml</module>
-		<!-- <module>../maven_spring4_boot/pom.xml</module> -->
 	</modules>
   
 
@@ -71,13 +71,5 @@
 			<version>${mysql-connector-java}</version>
 		</dependency>
   </dependencies>
-  
-  	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+  	
 </project>

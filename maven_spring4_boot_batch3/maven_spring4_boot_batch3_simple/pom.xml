@@ -6,7 +6,7 @@
 		<groupId>spring4.boot.batch3</groupId>
 		<artifactId>maven_spring4_boot_batch3</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>pom.xml</relativePath>
+		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<groupId>spring4.boot.batch3</groupId>
@@ -26,5 +26,13 @@
 	<dependencies>
 		
 	</dependencies>
-
+	
+<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>
