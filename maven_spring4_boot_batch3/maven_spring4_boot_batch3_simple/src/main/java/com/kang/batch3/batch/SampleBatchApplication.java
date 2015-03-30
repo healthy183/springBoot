@@ -1,4 +1,4 @@
-package com.kang.batch3.run;
+package com.kang.batch3.batch;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;

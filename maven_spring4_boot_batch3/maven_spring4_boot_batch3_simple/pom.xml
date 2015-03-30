@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>spring4.boot.batch3</groupId>
+		<artifactId>maven_spring4_boot_batch3</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>pom.xml</relativePath>
+	</parent>
+
+	<groupId>spring4.boot.batch3</groupId>
+	<artifactId>maven_spring4_boot_batch3_simple</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>maven_spring4_boot_batch3_simple</name>
+	<url>http://maven.apache.org</url>
+
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<mysql-connector-java>5.1.26</mysql-connector-java>
+	</properties>
+
+	<dependencies>
+		
+	</dependencies>
+
+</project>
