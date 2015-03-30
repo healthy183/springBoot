@@ -1,0 +1,10 @@
+package com.kang;
+
+public class TestKang {
+
+
+	public static void main(String[] args) {
+		
+		System.out.println("abcss`");
+	}
+}

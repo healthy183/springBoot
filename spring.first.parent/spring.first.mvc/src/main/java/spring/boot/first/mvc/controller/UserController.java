@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import spring.boot.first.dao.dbOne.vo.User;
+import spring.boot.first.dao.dbOrder.vo.User;
 
 
 
@@ -19,7 +19,7 @@ public class UserController {
 	@Value("${application.message}")
 	private String message;
 	
-	
+	//http://localhost:9090/user/jsonUser
 	@RequestMapping("/jsonUser")
 	public User jsonUser(){
 		
@@ -30,6 +30,7 @@ public class UserController {
 		return user;
 	}
 	
+	//http://localhost:9090/user/showView
 	@RequestMapping(value="/showView",method=RequestMethod.GET)
 	public ModelAndView showView(){
 		
