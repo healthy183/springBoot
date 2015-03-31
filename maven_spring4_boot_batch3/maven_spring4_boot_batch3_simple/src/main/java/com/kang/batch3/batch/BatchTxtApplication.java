@@ -28,8 +28,6 @@ import org.springframework.core.io.FileSystemResource;
 import com.kang.batch3.model.Person;
 import com.kang.batch3.processor.PersonItemProcessor;
 
-
-
 @Configuration
 @EnableBatchProcessing
 public class BatchTxtApplication {
