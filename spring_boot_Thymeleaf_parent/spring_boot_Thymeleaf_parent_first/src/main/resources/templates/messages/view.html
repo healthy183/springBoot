@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+</head>
+
+<body>
+
+   <div class="pull-right">
+		
+		<a th:href="@{/messages/list}" href="#">Message</a>
+				
+  </div>
+  
+  <dl>
+  	
+    <dd id="id" th:text="${message.id}"></dd>
+    <dd id="id" th:text="${message.created}"></dd>
+    <dd id="id" th:text="${message.summary}"></dd>
+  </dl>
+  
+ 
+  
+  <p th:text="#{test.kang.message}"></p>
+  
+
+</body>
+</html>

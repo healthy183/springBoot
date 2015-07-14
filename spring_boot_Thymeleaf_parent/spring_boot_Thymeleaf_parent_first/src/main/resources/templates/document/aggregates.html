@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+</head>
+<body>
+
+<div>
+
+	<table>
+		<tr>
+			<td>id</td>
+			<td>usrName</td>
+			<td>sum</td>
+		</tr>
+		<tr th:each="user : ${userList}">
+			<td th:text="${user.id}"></td>
+			<td th:text="${user.usrName}"></td>
+			<td th:text="${#aggregates.sum(user.messageList.![amount * price])}"></td>
+			<td></td>	
+		</tr>
+		
+	
+	</table>
+
+
+</div>
+
+
+
+</body>
+</html>

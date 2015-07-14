@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> 
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+
+<link  rel="stylesheet"  th:href="@{/css/show.css}" 
+  href="../../css/show.css"></link>
+
+<!-- <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"
+	href="../../css/bootstrap.min.css" /> -->
+
+</head>
+<body>
+	
+<span class="fontSize" id="fontSize">test size!</span>
+	
+<!-- 
+-->	
+<video width="1024" height="689" controls="controls" autoplay="autoplay"
+ 		>
+			<source   src="/../../videos/gem-like-you.mp4"
+				th:src="@{/videos/gem-like-you.mp4}"
+			 type="video/mp4"></source>
+			Your browser does not support the video tag.
+	</video> 
+		
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+</head>
+
+<body>
+
+
+<p th:text="'Hello,'+${name}+ '! this is springmvc!'"></p>
+
+define absolute path(绝对路径) <br/>
+<a th:href="@{http://www.baidu.com}">toBaidu</a><br/>
+
+<a th:href="@{//code.jquery.com/jquery-1.10.2.js}">jquery</a><br/><br/> 
+
+define relative path(相对路径)<br/>
+<a th:href="@{/run/testURL(testArg=${name},usrName='tom')}">test relative</a><br/><br/> 
+
+
+server relative path,it means visit other apps server(eg:other-app)<br/> 
+<a th:href="@{~/other-app/hello.html}" >server relative path</a> <br/><br/>  
+
+
+
+
+URL fragment<br></br>
+<a th:href="@{/run/testURL#all_info(testArg=${name},usrName='tom')}">test URL fragment</a> 
+
+
+<br></br>
+<br></br>
+
+spring form<br></br>
+<form action="#" th:action="@{/run/saveUser}" th:object="${user}" method="post">
+
+	 <input type="text" th:field="*{usrName}"></input><br/> 
+	<br/> 
+	
+	
+	<input type="submit"></input>
+
+
+</form>
+
+
+Internationalized Resource(国际化资源)
+<p th:text="#{header.address.country}"></p>
+
+</body>
+</html>

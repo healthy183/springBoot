@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>thymeleaf style:</h1>
+<div th:object="${session.message}">
+	<p>id:<span th:text="*{id}">id</span></p>
+    <p>created:<span th:text="*{#calendars.format(created,'yyyy-MM-dd')}">created</span></p>
+	<p>summary:<span th:text="*{summary}">summary</span></p>
+	<p>isTrue:<span th:text="*{isTrue}?'true':'false'">summary</span></p>
+</div>
+
+<h1>ognl style:</h1>
+<div>
+	<p>id:<span th:text="${session.message.id}">id</span></p>
+    <p>created:<span th:text="${#calendars.format(session.message.created,'yyyy-MM-dd')}">created</span></p>
+	<p>summary:<span th:text="${session.message.summary}">summary</span></p>
+</div>
+
+<h1>ognl style with *</h1>
+<div>
+	<p>id:<span th:text="*{session.message.id}">id</span></p>
+    <p>created:<span th:text="*{#calendars.format(session.message.created,'yyyy-MM-dd')}">created</span></p>
+	<p>summary:<span th:text="*{session.message.summary}">summary</span></p>
+</div>
+
+
+<h1>thymeleaf And ognl  style:</h1>
+
+<div th:object="${session.message}">
+	<p>id:<span th:text="${session.message.id}">id</span></p>
+    <p>created:<span th:text="*{#calendars.format(created,'yyyy-MM-dd')}">created</span></p>
+	<p>summary:<span th:text="*{summary}">summary</span></p>
+</div>
+
+<h1>thymeleaf style with #object</h1>
+<div th:object="${session.message}">
+	<p>id:<span th:text="${session.message.id}">id</span></p>
+    <p>created:<span th:text="*{#calendars.format(created,'yyyy-MM-dd')}">created</span></p>
+	<p>summary:<span th:text="${#object.summary}">summary</span></p>
+</div>
+</body>
+</html>

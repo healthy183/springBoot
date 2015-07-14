@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form  th:object="${msg}" th:action="@{/document/attrVal}" th:method="post"  >
+		
+		<span th:text="'id:'"></span>
+		<input th:value="*{id}" ></input><br></br>
+		<span th:text="'createDate:'"></span>
+		<input th:attr="value=*{#calendars.format(created,'yyyy:MM:dd')},class='tom',readonly='readonly'"></input><br></br>
+		<input type="submit" th:type="submit" th:value="*{summary}"></input>
+	
+	</form>
+	
+	<!-- th:remove="args"
+	args = all  remove the containing tag and child !
+	args = body all the child tag but not the containing tag
+	       tag  all the containing tag but not  the child tag  
+ all-but-first  remove all children of the containing tag except the first one     
+ 	       none  do nothing
+ -->
+           
+	<div th:remove="all">
+			this be removed in template!
+	</div>
+
+	<div th:remove="all-but-first">
+			<p>test1</p>
+			<p>test2</p>
+			<p>test3</p>
+	</div>
+	
+	
+	
+
+
+</body>
+</html>

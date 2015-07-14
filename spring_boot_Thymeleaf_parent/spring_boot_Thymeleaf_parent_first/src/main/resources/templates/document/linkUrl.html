@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h3>th:href="@{/document/session}</h3>
+	<a href="" th:href="@{/document/session}">link to session.html</a>
+	
+	<br></br>
+	<h3>th:href="@{http://localhost:9090/document/session}</h3>	
+	<a href="" th:href="@{http://localhost:9090/document/session}">link to session.html</a>
+
+	<br></br>
+	<h3>@{messages/visit/{id}(id=1)</h3>	
+	<a href="" th:href="@{~/messages/visit/{id}(id=007)}">link to ~/messages/view.html</a>
+	
+	<h3>@{${url}}</h3>
+	<a href="" th:href="@{${url}}">link to ~/messages/view.html</a>
+	
+	<h3>@{'~/messages/' +${visitUrl}/{id}(id=007)}    =_=! not work</h3>	 
+	<a href="" th:href="@{~/messages/${visitUrl}{id}(id=007)}">link to ~/messages/view.html</a>
+	
+	
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">  
+<!--  
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"  
+  layout:decorator="layout"
+   -->
+
+
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+<style type="text/css">
+	.ord{
+		font-size: 20px;
+	}
+</style>
+</head>
+<body>
+
+<table>
+	<tr th:unless="${not #lists.isEmpty(listTest)}">
+			<td>the list is empty1!</td>
+	</tr>
+	<tr th:if="${#lists.isEmpty(listTest)}">
+			<td>the list is empty2!</td>
+	</tr>
+</table>
+
+
+
+<table border="1"> 
+	
+			<tr th:each="message : ${messages}" th:class="${message.id}? 'ord'">
+        		<td th:text="${message.id}"></td>
+       			<!-- <td th:text="${message.created}"></td> -->
+       			<td th:text="${#calendars.format(message.created,'yyyy:MM:dd')}"></td>
+       			<td>
+       				<a href="#" th:href="@{'/messages/visit/'+${message.id}}" th:text="${message.summary}">
+       					the Summary
+       				</a>
+       			</td>
+        	</tr>
+	
+</table>
+
+<br></br>
+
+<table class="table table-bordered table-striped" border="1">  
+        <thead>  
+          <tr>
+          	<td>num</td>  
+            <td>ID</td>  
+            <td>Created</td>  
+            <td>Summary</td>  
+          </tr>  
+        </thead>  
+        <tbody>
+        	<tr th:if="${messages.empty}">
+        		<td colspan="4">
+        			No message
+        		</td>
+        	</tr>
+        	<tr th:each="message,messageStat : ${messages}">
+        		<td th:text="${messageStat.count}"></td>
+        		<td th:text="${message.id}"></td>
+       			<!-- <td th:text="${message.created}"></td> -->
+       			<td th:text="${#calendars.format(message.created,'yyyy:MM:dd')}"></td>
+       			<td>
+       				<a href="#" th:href="@{'/messages/visit/'+${message.id}}" th:text="${message.summary}">
+       					the Summary
+       				</a>
+       			</td>
+        	</tr>
+        	<!-- html5 tag -->
+        	<tr data-th-each="message : ${messages}">
+        		<td></td>
+        		<td data-th-text="${message.id}"></td>
+        		<td data-th-text="${#calendars.format(message.created,'yyyy:MM:dd')}"></td>
+        		<td data-th-text="*{message.summary}"></td>
+        	</tr>
+        	
+        	
+        	<tr data-th-each="message : ${messages}">
+        	<td></td>
+        		<td>
+        			<span th:switch="${message.id}">
+        					<p th:case="'0'">0!</p>
+        					<p th:case="'1'">1!</p>
+        					<p th:case="'2'">2!</p>
+        					<p th:case="*">*!</p>
+        			</span>
+        		
+        		</td>
+        		<td data-th-text="${#calendars.format(message.created,'yyyy:MM:dd')}"></td>
+        		<td data-th-text="*{message.summary}"></td>
+        	</tr>
+        	
+        	
+        	
+        </tbody>
+ </table>       
+
+
+<ul>
+	<li th:each="message : ${messages}">
+	<!-- th:field="*{checkMessage}" -->
+		<input type="checkbox" name="tom"  th:value="*{message.summary}"></input>
+		<label th:for="*{message.summary}" th:text="*{message.summary}"></label>
+	
+	</li>
+</ul>
+
+
+
+</body>
+</html>

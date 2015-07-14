@@ -9,6 +9,7 @@ import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
@@ -20,6 +21,7 @@ import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -38,6 +40,9 @@ public class CsvJob {
 	@Autowired
 	private InfrastructureConfiguration infrastructureConfiguration;
 	
+	
+	private static final String OVERRIDDEN_BY_EXPRESSION = null;
+	
 	@Bean
 	public Job csvJobStart(){
 		return jobBF.get("csvJobStart")
@@ -51,7 +56,7 @@ public class CsvJob {
 	public Step step(){
 		return stepBF.get("step")
 				.<Person,Person>chunk(1)
-				.reader(scvReader())
+				.reader(scvReader(OVERRIDDEN_BY_EXPRESSION))
 				.processor(processor())
 				.writer(writer())
 				.listener(logProcessListener())
@@ -64,12 +69,12 @@ public class CsvJob {
 	
 	
 	@Bean
-	public ItemReader<Person> scvReader(){
-		
+	@StepScope
+	public ItemReader<Person> scvReader(@Value("#{jobParameters[pathToFile]}") String filePath){
 		
 		FlatFileItemReader<Person> itemReader = new FlatFileItemReader<Person>();
 		
-		itemReader.setResource(new ClassPathResource("sample-data.csv"));
+		itemReader.setResource(new ClassPathResource(filePath));
 		
 		itemReader.setLineMapper(lineMapper());
 		

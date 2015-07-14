@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Hello Spring Boot!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.2.0/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.2.0/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+  <!-- href="../..//css/core.css" -->
+    <link 
+          th:href="@{/css/core.css}"
+          rel="stylesheet" media="screen" />
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.1/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
+</head>
+<body>
+<!-- Header -->
+<div th:replace="layoutDemo/header :: header">
+    <!-- ============================================================================ -->
+    <!-- This content is only used for static prototyping purposes (natural templates)-->
+    <!-- and is therefore entirely optional, as this markup fragment will be included -->
+    <!-- from "fragments/header.html" at runtime.                                     -->
+    <!-- ============================================================================ -->
+    <!-- <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Static header</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+</div>
+<div class="container">
+    <div class="hero-unit">
+        <!-- <h1>Test</h1>
+        <p>
+            Welcome to the Spring Boot Thymeleaf Application!
+        </p>
+        <p>
+            <a href="#" th:href="@{properties}" class="btn btn-large btn-success">System Properties</a>
+        </p> -->
+    </div>
+    <div>
+        <!-- <h1>Spring Actuator</h1> -->
+        <p class="testFont">
+            modify by healthy!
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p><a href="#" th:href="@{autoconfig}">autoconfig</a></p>
+                    </td>
+                    <td>
+                        <p>Displays an auto-configuration report showing all auto-configuration candidates and the
+                        reason why they “were” or “were not” applied.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <div th:replace="layoutDemo/footer :: footer">&copy; 2014 The Static Templates</div>
+    </footer>
+</div>
+</body>
+</html>

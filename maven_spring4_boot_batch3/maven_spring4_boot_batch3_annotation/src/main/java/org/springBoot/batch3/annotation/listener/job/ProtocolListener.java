@@ -8,8 +8,9 @@ import org.springframework.batch.core.JobExecutionListener;
 import org.springframework.batch.core.StepExecution;
 
 @Slf4j
-public class ProtocolListener implements JobExecutionListener  {@Override
+public class ProtocolListener implements JobExecutionListener  {
 	
+	@Override
 	public void beforeJob(JobExecution paramJobExecution) {
 		
 	}

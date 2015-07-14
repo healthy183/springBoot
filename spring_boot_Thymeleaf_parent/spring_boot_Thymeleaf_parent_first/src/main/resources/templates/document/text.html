@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+</head>
+<body>
+
+	<p th:text="'this is web app!'">thymeleaf</p>
+	
+	<p>the year is <span th:text="2015">1999</span>!</p>
+	
+	<p>in two year is <span th:text="2015+2">2001</span>!</p>
+	
+	<p>2015>2:<span th:text="2015>2">false</span>!</p>
+	
+	
+	<p>testTrue:<span th:if="${testTrue}  == true">testTrue</span>!</p>
+
+	<p>testFalse:<span th:if="${testfalse}  == false">testfalse</span>!</p>
+	
+	<p>testNull:<span th:if="${testNull}  == null">testNull</span>!</p>	
+	
+	<p>testClass:<span th:class="testClass">testClass</span>!</p>	
+	
+	<p>this is <span th:text="'the '+ ${pageType}">html</span>!</p>	
+	
+	<p>this is <span th:text="${testfalse}+ ' '+ |${pageType},${testTrue}|">html</span>!</p>	
+	
+	
+	<p>this th:with <span th:with="isEven=(${testWith} %  2 == 0)">tag</span>!</p>	
+	
+	<!--
+	<p>test &gt:<span th:if="${testGt}">is bigger than 1</span> </p>
+	 -->
+	
+	<p>this ${true}?a:b <span th:class="${testTrue}?'true':'false'"></span> !</p>	
+	
+	<p>more complex  ${true}?a:b <span th:class="${testTrue}?(${testTrue}?'true':'false'):'false'"></span> !</p>	
+	
+	<!--/* ${true}?a  ==  ${true}?${true}:a */-->
+	<p> ${true}?a  <span th:class="${testfalse}?a"></span> !</p>	
+	
+	<div th:object="${msg}">
+		<p>Summary is <span th:text="*{summary}?:'null' + |!|">27!</span></p>
+		<p>Summary is <span th:text="*{summary != null}?*{summary}:'null' + |!|">27!</span></p>
+	
+		<p>Summary is <span th:text="*{summary}?:(*{id}>2?'big':'small')">27!</span></p>
+	</div>
+	
+	<p>
+		<span th:remove="${testFalse}?all:none">
+		this is removing!
+		</span>
+	</p>
+	
+	<!--/*-->
+		<div>
+			you can not see me with the thymeleaf!
+		</div>
+	<!--*/-->
+	
+	<div>a</div>
+	<!--/*/
+	<span>you can see me with the thymeleaf!</span>
+	<div>b</div>
+	<div>c</div>
+	<div>d</div>
+	/*/-->
+	
+	<th:block th:object="${msg}">
+	<div >
+		<p>Summary is <span th:text="*{summary}?:'null' + |!|">27!</span></p>
+		<p>Summary is <span th:text="*{summary != null}?*{summary}:'null' + |!|">27!</span></p>
+	
+		<p>Summary is <span th:text="*{summary}?:(*{id}>2?'big':'small')">27!</span></p>
+	</div>
+	</th:block>
+	
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		 
+		function testFun(){
+		
+			var userName  = /*[[${msg.id}]]*/ ;  
+			
+			//alert(userName);
+			
+			userName  = [[${msg.id}]];  
+			
+			//alert(userName);
+		
+		var user = {'a':null,'b':'abc'};
+		
+		//alert(user.b);
+		
+		
+		}  
+	/*]]>*/
+	</script>
+	
+	<input onclick="testFun();" value="testJS" type="button"></input><br></br>
+	
+	
+	<script th:inline="javascript">
+	
+	var x = 23;
+
+	/*[+
+	   
+	   var msg = 'this is msg!';
+	   
+	 +]*/
+	
+	// alert(msg);
+	
+	function msgFun(){
+	
+		alert(msg);
+		
+	} 
+	
+	</script>
+	<!--this only work in thymeleaf  templete! -->
+	<input onclick="msgFun();" value="testmsgFun" type="button"></input><br></br>
+	
+</body>
+</html>
