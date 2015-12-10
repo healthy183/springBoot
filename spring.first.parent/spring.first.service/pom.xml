@@ -6,7 +6,7 @@
   		 <groupId>spring.boot.first</groupId>
   		<artifactId>spring.first.parent</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
-  		<relativePath>../pom</relativePath>
+  		<relativePath>../pom.xml</relativePath>
   </parent>
 
 
