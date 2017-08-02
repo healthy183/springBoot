@@ -23,3 +23,9 @@ dependency-reduced-pom.xml
 /bin
 git
 git.pub
+.gradle
+/.gradle/*
+/build/*
+*/build/*
+*.MF
+*.war.original

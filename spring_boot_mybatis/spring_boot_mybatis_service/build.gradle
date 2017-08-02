@@ -1,0 +1,11 @@
+bootRepackage {
+    enabled = false
+}
+
+dependencies {
+    compile project(':spring_boot_mybatis_api')
+    compile project(':spring_boot_mybatis_common')
+    compile project(':spring_boot_mybatis_biz')
+
+}
+

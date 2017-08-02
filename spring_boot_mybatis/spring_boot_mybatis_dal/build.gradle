@@ -1,0 +1,8 @@
+bootRepackage {
+    enabled = false
+}
+
+dependencies {
+    compile project(':spring_boot_mybatis_common')
+    //compile "com.kang.springmybatis:spring_boot_mybatis_common:$subprojects.version"
+}
