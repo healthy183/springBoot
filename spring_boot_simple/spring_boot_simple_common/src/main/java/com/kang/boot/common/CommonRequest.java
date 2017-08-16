@@ -13,6 +13,7 @@ import java.io.Serializable;
 public class CommonRequest implements Serializable {
     private static final long serialVersionUID = -449603975016674678L;
     private String initiationID;
+    private String tokenId;
 
     public CommonRequest() {
     }
@@ -23,6 +24,14 @@ public class CommonRequest implements Serializable {
 
     public void setInitiationID(String initiationID) {
         this.initiationID = initiationID;
+    }
+
+    public String getTokenId() {
+        return tokenId;
+    }
+
+    public void setTokenId(String tokenId) {
+        this.tokenId = tokenId;
     }
 
     public boolean equals(Object o) {
@@ -44,7 +53,6 @@ public class CommonRequest implements Serializable {
                 } else if(!this$initiationID.equals(other$initiationID)) {
                     return false;
                 }
-
                 return true;
             }
         }
@@ -63,7 +71,7 @@ public class CommonRequest implements Serializable {
     }
 
     public String toString() {
-        return "CommonRequest(initiationID=" + this.getInitiationID() + ")";
+        return "CommonRequest(initiationID=" + this.getInitiationID() + ",tokenId=" + this.getTokenId() + ")";
     }
 }
 
