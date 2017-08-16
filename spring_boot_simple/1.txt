@@ -1,0 +1,11 @@
+@SpringBootApplication
+//@EnableAutoConfiguration(exclude={RedisAutoConfiguration.class})
+@ImportResource(locations={"classpath:applicationContext.xml"})
+public class Application {
+
+	public static void main(String[] args) {
+	    @SuppressWarnings("unused")
+        ServiceFactory factory = ServiceFactory.getInstanceWithPath(EdasConfig.EDAS_CONFIG);
+		SpringApplication.run(Application.class, args);
+	}
+}

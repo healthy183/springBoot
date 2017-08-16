@@ -7,6 +7,9 @@ buildscript {
         springBootVersion='1.5.1.RELEASE'
     }
     dependencies {
+        // https://mvnrepository.com/artifact/com.alibaba.citrus.tool/autoconfig-maven-plugin
+        //classpath: 'com.alibaba.citrus.tool', name: 'autoconfig-maven-plugin', version: '1.2'
+        //classpath("com.alibaba.citrus.tool:autoconfig-maven-plugin:1.2")
         classpath("org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion")
     }
 }

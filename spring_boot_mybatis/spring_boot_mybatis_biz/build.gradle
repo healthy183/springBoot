@@ -4,6 +4,6 @@ bootRepackage {
 
 dependencies {
     compile project(':spring_boot_mybatis_common')
-    compile project(':spring_boot_mybatis_dal')
+    compile project(':spring_boot_mybatis_manager')
     compile project(':spring_boot_mybatis_integration')
 }
