@@ -1,5 +1,6 @@
 package com.kang.boot.common;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -12,6 +13,7 @@ import java.io.Serializable;
 
 public class CommonRequest implements Serializable {
     private static final long serialVersionUID = -449603975016674678L;
+    @NotNull(message="请求流水为空")
     private String initiationID;
     private String tokenId;
 

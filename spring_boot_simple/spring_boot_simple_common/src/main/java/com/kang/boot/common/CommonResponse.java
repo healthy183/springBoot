@@ -13,6 +13,7 @@ import java.io.Serializable;
  */
 public class CommonResponse<T extends java.io.Serializable> implements Serializable {
     private static final long serialVersionUID = -3214885479484534221L;
+    private String initiationID;
     private T result;
     private String errorCode;
     private String errorMsg;
@@ -74,6 +75,14 @@ public class CommonResponse<T extends java.io.Serializable> implements Serializa
 
     public String toString() {
         return Objects.toStringHelper(this).add("result", this.result).add("errorCode", this.errorCode).add("errorMsg", this.errorMsg).omitNullValues().toString();
+    }
+
+    public String getInitiationID() {
+        return initiationID;
+    }
+
+    public void setInitiationID(String initiationID) {
+        this.initiationID = initiationID;
     }
 }
 

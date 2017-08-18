@@ -11,5 +11,15 @@
 
     <artifactId>spring_boot_simple_facade</artifactId>
 
+    <dependencies>
+    <dependency>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>spring_boot_simple_common</artifactId>
+    </dependency>
 
+    <dependency>
+        <groupId>${project.parent.groupId}</groupId>
+        <artifactId>spring_boot_simple_context</artifactId>
+    </dependency>
+    </dependencies>
 </project>

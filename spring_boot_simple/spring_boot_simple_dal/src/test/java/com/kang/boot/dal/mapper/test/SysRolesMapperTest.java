@@ -21,7 +21,7 @@ public class SysRolesMapperTest extends  BaseTest {
     public void run(){
         SysRoles sysRoles = new SysRoles();
         sysRoles.setRolename("梁健康");
-        sysRoles.setRoleurl("abc");
+        sysRoles.setRoleurl("abeeec");
         sysRolesMapper.insert(sysRoles);
     }
 }
